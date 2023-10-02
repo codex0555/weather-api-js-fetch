@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api</title>
+    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body class="body">
+   
+    <div class="weathermain">
+
+        <div class="header">
+            <input type="text" class="input" id="input" placeholder="Enter Your City">
+            <button type="button" class="search" id="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <!-- <div class="error">
+            <h3 class="caution">Hey Man Just Recheck You Info!</h3>
+            <img src="/anime404.png" alt="Anime404" width="300px" height="">
+        </div> -->
+<div class="main">
+        <div class="upward">
+            <div class="s">
+            <span class="icon" id="icon"></span>
+            
+            <h3 class="desc" id="desc">DATA_Loading</h3>
+        </div>
+       
+            <span class="h">
+                
+            <h2 class="temp" id="temp">--°C </h2>
+            <p class="feels_like" id="feels_like">Feels Like 36°C</p>
+        </span>
+        </div>
+        <div class="middle">
+    <h1 class="city" id="name">---</h1>
+    <p class="country" id="country">--</p>
+</div>
+    <div class="downward">
+        <span class="update">
+            <span class="water" id="water"><i class="fa-solid fa-water"></i></span>
+        <h3 class="humidity" id="humidity">--%  </h3>
+        <p class="wave">Humidity</p> </span>
+        <span class="get">
+            <span class="air"><i class="fa-solid fa-wind"></i></span>
+        <h3 class="wind_speed" id="wind_speed">-.-- km/h </h3>
+        <p class="ws">Wind Speed</p>
+    </span>
+
+    </div>
+    
+</div>
+
+
+    </div>
+   <script>
+    
+    const input= document.querySelector("input");
+    const search= document.getElementById("search");
+    const temp= document.getElementById("temp");
+    const feels_like= document.getElementById("feels_like");
+    const humidity= document.getElementById("humidity");
+    const desc= document.getElementById("desc");
+    const sticker= document.getElementById("icon");
+    const wind_speed= document.getElementById("wind_speed");
+    const name= document.getElementById("name");
+    const country= document.getElementById("country");
+    // const error= document.getElementById(".error");
+    // const main= document.getElementById(".main");
+    
+
+   
+    async function getWeather(city){
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=289808d5c97ed37fff84a396e2a034c2`;
+        const data= await fetch(`${url}`).then(response=>response.json());
+        console.log(data);
+        // if(data.cod==='404'){
+        //     console.log('error');
+        //     main.style.display="none";
+        //     error.style.display="flex";
+            
+        //     return;
+            
+        // }
+        // error.style.display="none";
+        // main.style.display="block";
+
+        temp.innerText= Math.round(data.main.temp-273.15)+"°C";
+        feels_like.innerText= "Feels Like "+ Math.round(data.main.feels_like-273.15)+"°C";
+        humidity.innerText= data.main.humidity+"%";
+        name.innerText= data.name;
+        country.innerText= data.sys.country;
+        
+        desc.innerText= data.weather[0].main;
+        wind_speed.innerText= data.wind.speed +" km/h";
+        switch(data.weather[0].main){
+            case 'Clouds':
+                sticker.className="fa-solid fa-cloud ";
+                break;
+                case 'Clear':
+                    sticker.className="fa-solid fa-sun";
+                    break;
+                    case 'Rain':
+                        sticker.className="fa-solid fa-cloud-showers-heavy";
+                        break;
+                case 'Mist':
+                    sticker.className = "fa-solid fa-water";
+                    break;
+                case 'Snow':
+                    sticker.className= "fa-regular fa-snowflake";
+                    break;
+                case 'Drizzle':
+                    sticker.className= "fa-solid fa-cloud-sun-rain";
+                    break;
+                case 'Haze':
+                    sticker.className= "fa-solid fa-smog";
+                    break;
+        }
+
+
+        
+
+
+
+        
+
+        
+            
+    }
+
+    
+    search.addEventListener("click",()=>{
+        getWeather(input.value);
+    })
+    
+   </script>
+</body>
+</html>

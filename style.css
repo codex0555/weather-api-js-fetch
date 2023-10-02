@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.weathermain{
+    text-align: center;
+    
+    padding: 10px;
+    margin-top: 100px;
+    width: 400px;
+    margin-left: 250px;
+    color: aliceblue;
+    background: linear-gradient(110deg, rgb(134, 140, 196), #25265f);
+    border-radius: 10px;
+    height: auto;
+    font-family: 'Roboto',  sans-serif;
+}
+.body{
+    background-color: black;
+}
+
+.input{
+    color: black;
+    padding: 20px;
+    width: 60%;
+    margin-top: 18px;
+    border-radius: 16px;
+    border: 0;
+}
+.search{
+    width: 14%;
+    padding: 20px;
+    border-radius: 80px;
+    border: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: rgba(139, 140, 226, 0.5);
+    color: #fff;
+    transition: 0.3s ea;
+    margin-top: 18px;
+}
+.upward{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    align-items: center;
+}
+#icon{
+    font-size: 295%;
+    padding-top: 0px;
+}
+.desc{
+    margin-top: 20px;
+    font-size: 18px;
+}
+.thermo{
+    font-size: 30px;
+    text-align: right;
+    margin-left: 0px;
+}
+.temp{
+    font-size: 35px;
+    margin-bottom: 18px;
+}
+.downward{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+}
+.humidity{
+    font-size: 20px;
+   
+}
+.water{
+    font-size: 35px;
+}
+.wave{
+    margin-top: 10px;
+    font-size: 18px;
+}
+.wind_speed{
+    font-size: 18px;
+    text-align: left;
+    margin-top:10px ;
+    padding-bottom: 0px;
+    
+}
+.air{
+    font-size: 35px;
+    margin-top: 0px;
+}
+.ws{
+    margin-top: 10px;
+}
+
+.get{
+    margin-top: 18px;
+    font-family: 'Roboto',  sans-serif;
+}
+.update{
+    margin-top: 14px;
+}
+.city{
+    text-align: center;
+    margin-top: 0px;
+}
+/* .error{
+    display :none;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding-right: 20px;
+} */
+.main{
+    display: ;
+}
